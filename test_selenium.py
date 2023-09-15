@@ -28,11 +28,18 @@ def test_add_to_cart(goto_page, login):
     # goto_page.find_element(By.XPATH, "//a[@href='/cart']").click()
     assert goto_page.current_url == "https://www.saucedemo.com/inventory.html"
     # goto_page.find_element(By.NAME, "add-to-cart-sauce-labs-backpack").click()
-    goto_page.find_element(By.CLASS_NAME, "btn").click() # btn btn_primary btn_small btn_inventory
+    goto_page.find_element(By.CLASS_NAME, "btn_primary").click() # btn btn_primary btn_small btn_inventory
     # assert goto_page.find_element(By.NAME, "remove-sauce-labs-backpack").is_displayed()
     wait = WebDriverWait(goto_page, 10)
     wait.until(lambda x: x.find_element(By.NAME, "remove-sauce-labs-backpack").is_displayed())
     for i in goto_page.find_elements(By.CLASS_NAME, "inventory_item_name"):
         print(i.text)
     print(goto_page.current_url)
+    goto_page.close()
+
+def test_remove_from_cart(goto_page, login):
+    """This test will remove an item from the cart"""
+    goto_page.find_element(By.CLASS_NAME, "btn_primary").click()  # btn btn_primary btn_small btn_inventory
+    goto_page.find_element(By.NAME, "remove-sauce-labs-backpack").click()
+    assert goto_page.find_element(By.NAME, "add-to-cart-sauce-labs-backpack").is_displayed()
     goto_page.close()
