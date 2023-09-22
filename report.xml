@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="2" time="6.894" timestamp="2023-09-17T15:25:53.942116" hostname="MacBook-Pro-2"><testcase classname="test_selenium" name="test_add_to_cart" time="6.679" /><testcase classname="test_selenium" name="test_remove_from_cart" time="0.149" /></testsuite></testsuites>
